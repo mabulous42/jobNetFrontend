@@ -11,8 +11,8 @@ import { timeDifference } from '../Functions/GetTimeDifference';
 import { router } from '../Router/Router';
 
 function ManageJobs() {
-    const dispatch = useDispatch()
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const [currentEmployer, setcurrentEmployer] = useState("")
 
@@ -24,12 +24,12 @@ function ManageJobs() {
         getEmployer(dispatch)
     }, [])
 
-    useEffect(() => {
-        console.log("UserDetails updated:", UserDetails);
-        if (UserDetails) {
-            setcurrentEmployer(UserDetails)
-        }
-    }, [UserDetails]); // Adding UserDetails as a dependency here
+    // useEffect(() => {
+    //     console.log("UserDetails updated:", UserDetails);
+    //     if (UserDetails) {
+    //         setcurrentEmployer(UserDetails)
+    //     }
+    // }, [UserDetails]); // Adding UserDetails as a dependency here
 
 
 
@@ -39,6 +39,10 @@ function ManageJobs() {
 
     // //fetching all the posted jobs from the database
     useEffect(() => {
+        console.log("UserDetails updated:", UserDetails);
+        if (UserDetails) {
+            setcurrentEmployer(UserDetails)
+        }
         console.log(currentEmployer);
         if(currentEmployer){
             const uri = `${router}/users/employerJobs/${currentEmployer.email}`
@@ -51,7 +55,7 @@ function ManageJobs() {
         })
         }
         
-    }, [])
+    }, [UserDetails])
 
     const edit = (id) => {
         console.log(id);

@@ -22,11 +22,11 @@ function UserDashboard() {
     const { isFetching, UserDetails, fetchErr } = useSelector((state) => state.CurrentUserSlice);
     console.log(UserDetails);
 
-    useEffect(() => {
-        if (UserDetails) {
-            setcurrentUser(UserDetails)
-        }
-    }, [UserDetails]); // Adding UserDetails as a dependency here
+    // useEffect(() => {
+    //     if (UserDetails) {
+    //         setcurrentUser(UserDetails)
+    //     }
+    // }, [UserDetails]); // Adding UserDetails as a dependency here
 
     // console.log(currentUser.skills);
 
@@ -40,6 +40,9 @@ function UserDashboard() {
 
     //fetching all the posted jobs from the database
     useEffect(() => {
+        if (UserDetails) {
+            setcurrentUser(UserDetails)
+        }
         const uri = `${router}/users/allJobs`
         axios.get(uri).then((res) => {
             console.log(res);
@@ -57,7 +60,7 @@ function UserDashboard() {
         }).catch((err) => {
             console.log(err)
         })
-    }, [currentUser.skills])
+    }, [UserDetails])
 
     const getJobID = (id) => {
         console.log(id);

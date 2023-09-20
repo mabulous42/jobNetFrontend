@@ -78,19 +78,15 @@ function EditPostedJob() {
         }
 
         console.log(postedJobDetails);
-        // if (selectedJobType === "" || selectedSalaryType === "") {
-        //     alert("Make sure all the field is filled")
-        // } else {
-        //     const uri = "http://localhost:5353/users/jobs"
-        //     axios.post(uri, postedJobDetails).then((res) => {
-        //         console.log(res);
-        //         alert(res.data.message)
-        //         navigate("/employerDashboard")
-        //     }).catch((err) => {
-        //         console.log(err);
-        //         alert(err.response.data.message)
-        //     })
-        // }
+        // const uri = "http://localhost:5353/users/jobs"
+        // axios.post(uri, postedJobDetails).then((res) => {
+        //     console.log(res);
+        //     alert(res.data.message)
+        //     navigate("/employerDashboard")
+        // }).catch((err) => {
+        //     console.log(err);
+        //     alert(err.response.data.message)
+        // })
     }
 
     const { handleSubmit, handleChange, errors, touched, handleBlur, values } = useFormik({
